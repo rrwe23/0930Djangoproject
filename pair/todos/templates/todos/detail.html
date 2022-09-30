@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="{% url 'todos:update' review.pk %}">
+  <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">제목</label>
+      <input type="text" class="form-control" maxlength="80" name="title" value="{{ review.title }}">
+  </div>
+  <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">내용</label>
+      <input type="text" class="form-control" id="exampleInputPassword1" name="content" value="{{ review.content }}">
+  </div>
+  <button type="submit" class="btn btn-primary">글 수정</button>
+  <a href="{% url 'todos:delete' review.pk %}" class="btn btn-danger">글 삭제</a>
+</form>
+{% endblock %}

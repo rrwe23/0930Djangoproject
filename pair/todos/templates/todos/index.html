@@ -1,29 +1,28 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<h1> TEST</h1>
-
+<header class="p-5 text-center fs-1 fw-bold">리뷰조아</header>
 <table class="table">
     <thead>
         <tr>
             <th scope="col">리뷰 번호</th>
             <th scope="col">리뷰 목록</th>
             <th scope="col">작성 시간</th>
-
         </tr>
     </thead>
     <tbody>
-
         {% for review in reviews %}
         <tr>
             <th>{{review.id}}</th>
-            <th>{{review.title}}</th>
-            <th>{{review.created_at}}</th>
-
+            <th>
+                <a href="{% url 'todos:detail' review.pk %}" type="submit">{{review.title}}</a>
+            </th>
+            <th>{{review.updated_at}}</th>
         </tr>
         {% endfor %}
     </tbody>
 </table>
-
+<form action="{% url 'todos:new'%}">
+    <button type="submit">새 글 쓰기</button>
+</form>
 
 {% endblock %}
