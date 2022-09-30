@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1> TEST</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">리뷰 번호</th>
+            <th scope="col">리뷰 목록</th>
+            <th scope="col">작성 시간</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for review in reviews %}
+        <tr>
+            <th>{{review.id}}</th>
+            <th>{{review.title}}</th>
+            <th>{{review.created_at}}</th>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}
