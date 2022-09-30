@@ -47,3 +47,12 @@ def delete(request, pk):
     review.delete()
 
     return redirect("todos:index")
+
+def search(request,title):
+    searches = Review.objects.all()
+    
+    context={
+        'reviews':searches
+    }
+    
+    return render(request,"todos:search",context)
