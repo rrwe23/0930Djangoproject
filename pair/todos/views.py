@@ -48,11 +48,11 @@ def delete(request, pk):
 
     return redirect("todos:index")
 
-def search(request,title):
-    searches = Review.objects.all()
-    
+def search(request):
+    search = request.GET.get('title')
+    reviews = Review.objects.filter(title__contains = search)
     context={
-        'reviews':searches
+        'reviews': reviews
     }
     
-    return render(request,"todos:search",context)
+    return render(request,"todos/search.html",context)
